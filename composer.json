@@ -1,0 +1,18 @@
+{
+    "name": "jaddek/bitgo-http-client",
+    "type": "library",
+    "authors": [
+        {
+            "name": "tonynazarov",
+            "email": "tonynazarov@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/http-client": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jaddek\\Bitgo\\Http\\Client\\": "src/"
+        }
+    }
+}
