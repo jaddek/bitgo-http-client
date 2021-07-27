@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Jaddek\Bitgo\Http\Client\Client\Wallet;
 
 use Jaddek\Bitgo\Http\Client\AbstractClient;
-use Symfony\Contracts\HttpClient\ResponseInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;;
 
 class Webhook extends AbstractClient implements WebhookInterface
 {
@@ -14,7 +14,7 @@ class Webhook extends AbstractClient implements WebhookInterface
      * @param string $walletId
      * @param array $body
      * @return ResponseInterface
-     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     * @throws \Symfony\Contracts\bitgoClient\Exception\TransportExceptionInterface
      */
     public function addWalletWebhook(string $coin, string $walletId, array $body): ResponseInterface
     {
@@ -23,7 +23,7 @@ class Webhook extends AbstractClient implements WebhookInterface
             '{walletId}' => $walletId,
         ]);
 
-        return $this->httpClient->request('POST', $url, [
+        return $this->bitgoClient->request('POST', $url, [
             'json'    => $body,
         ]);
     }
@@ -32,7 +32,7 @@ class Webhook extends AbstractClient implements WebhookInterface
      * @param string $coin
      * @param string $walletId
      * @return ResponseInterface
-     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     * @throws \Symfony\Contracts\bitgoClient\Exception\TransportExceptionInterface
      */
     public function listWalletWebhook(string $coin, string $walletId): ResponseInterface
     {
@@ -41,14 +41,14 @@ class Webhook extends AbstractClient implements WebhookInterface
             '{walletId}' => $walletId,
         ]);
 
-        return $this->httpClient->request('GET', $url);
+        return $this->bitgoClient->request('GET', $url);
     }
 
     /**
      * @param string $coin
      * @param string $walletId
      * @return ResponseInterface
-     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     * @throws \Symfony\Contracts\bitgoClient\Exception\TransportExceptionInterface
      */
     public function removeWalletWebhook(string $coin, string $walletId): ResponseInterface
     {
@@ -57,6 +57,6 @@ class Webhook extends AbstractClient implements WebhookInterface
             '{walletId}' => $walletId,
         ]);
 
-        return $this->httpClient->request('DELETE', $url);
+        return $this->bitgoClient->request('DELETE', $url);
     }
 }

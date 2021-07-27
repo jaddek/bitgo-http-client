@@ -14,7 +14,7 @@ class Wallet extends AbstractClient implements WalletInterface
      * @param string $walletId
      * @param array $body
      * @return ResponseInterface
-     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     * @throws \Symfony\Contracts\bitgoClient\Exception\TransportExceptionInterface
      */
     public function send(string $coin, string $walletId, array $body): ResponseInterface
     {
@@ -23,7 +23,7 @@ class Wallet extends AbstractClient implements WalletInterface
             '{walletId}' => $walletId,
         ]);
 
-        return $this->httpClient->request('POST', $url, [
+        return $this->bitgoClient->request('POST', $url, [
             'json' => $body,
         ]);
     }
@@ -32,7 +32,7 @@ class Wallet extends AbstractClient implements WalletInterface
      * @param string $coin
      * @param string $walletId
      * @return ResponseInterface
-     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     * @throws \Symfony\Contracts\bitgoClient\Exception\TransportExceptionInterface
      */
     public function maximumSpendable(string $coin, string $walletId): ResponseInterface
     {
@@ -41,14 +41,14 @@ class Wallet extends AbstractClient implements WalletInterface
             '{walletId}' => $walletId,
         ]);
 
-        return $this->httpClient->request('GET', $url);
+        return $this->bitgoClient->request('GET', $url);
     }
 
     /**
      * @param string $coin
      * @param string $walletId
      * @return ResponseInterface
-     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     * @throws \Symfony\Contracts\bitgoClient\Exception\TransportExceptionInterface
      */
     public function getTransferList(string $coin, string $walletId): ResponseInterface
     {
@@ -57,13 +57,13 @@ class Wallet extends AbstractClient implements WalletInterface
             '{walletId}' => $walletId,
         ]);
 
-        return $this->httpClient->request('GET', $url);
+        return $this->bitgoClient->request('GET', $url);
     }
 
     /**
      * @param string $coin
      * @return ResponseInterface
-     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     * @throws \Symfony\Contracts\bitgoClient\Exception\TransportExceptionInterface
      */
     public function getList(string $coin): ResponseInterface
     {
@@ -71,6 +71,6 @@ class Wallet extends AbstractClient implements WalletInterface
             '{coin}' => $coin,
         ]);
 
-        return $this->httpClient->request('GET', $url);
+        return $this->bitgoClient->request('GET', $url);
     }
 }

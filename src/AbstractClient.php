@@ -8,7 +8,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 abstract class AbstractClient
 {
-    public function __construct(protected HttpClientInterface $httpClient)
+    public function __construct(protected HttpClientInterface $bitgoClient)
     {
     }
 }

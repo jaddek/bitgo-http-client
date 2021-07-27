@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Jaddek\Bitgo\Http\Client\Client\Wallet;
 
 use Jaddek\Bitgo\Http\Client\AbstractClient;
-use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
-use Symfony\Contracts\HttpClient\ResponseInterface;
+use Symfony\Contracts\bitgoClient\Exception\ClientExceptionInterface;
+use Symfony\Contracts\bitgoClient\Exception\RedirectionExceptionInterface;
+use Symfony\Contracts\bitgoClient\Exception\ServerExceptionInterface;
+use Symfony\Contracts\bitgoClient\Exception\TransportExceptionInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;;
 
 class Address extends AbstractClient implements AddressInterface
 {
@@ -28,7 +28,7 @@ class Address extends AbstractClient implements AddressInterface
             '{walletId}' => $walletId,
         ]);
 
-        return $this->httpClient->request('POST', $url, [
+        return $this->bitgoClient->request('POST', $url, [
             'json' => array_merge($body, ['label' => $label]),
         ]);
     }
@@ -49,6 +49,6 @@ class Address extends AbstractClient implements AddressInterface
             '{addressOrId}' => $addressOrId,
         ]);
 
-        return $this->httpClient->request('GET', $url);
+        return $this->bitgoClient->request('GET', $url);
     }
 }

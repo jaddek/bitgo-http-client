@@ -4,15 +4,19 @@ declare(strict_types=1);
 
 namespace Jaddek\Bitgo\Http\Client\Provider\Transfer;
 
-use Jaddek\Bitgo\Http\Client\AbstractProvider;
 use Jaddek\Bitgo\Http\Client\Client\Wallet\TransferInterface;
 use Jaddek\Bitgo\Http\Client\Response\Transfer\Transfer as TransferResponse;
+use Psr\Log\LoggerInterface;
 
-/**
- * @property TransferInterface $client
- */
-class TransferProvider extends AbstractProvider
+class TransferProvider
 {
+    public function __construct(
+        private TransferInterface $client,
+        private LoggerInterface $logger
+    )
+    {
+    }
+
     public function get(string $coin, string $walletId, string $transferId): TransferResponse
     {
         $response = $this->client->get($coin, $walletId, $transferId);

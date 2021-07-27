@@ -4,21 +4,23 @@ declare(strict_types=1);
 
 namespace Jaddek\Bitgo\Http\Client\Response\Transfer;
 
-use App\Core\SetterTrait;
+use Jaddek\Bitgo\Http\Client\SetterTrait;
 
 class Payment
 {
     use SetterTrait;
 
     private Transfer $transfer;
-    private string $txid;
-    private string $tx;
-    private string $status;
+    private string   $txid;
+    private string   $tx;
+    private string   $status;
+    private string   $data;
 
     public function __construct(array $data)
     {
         $this->setAttributes($data, ['txid', 'tx', 'status']);
         $this->transfer = new Transfer($data['transfer'] ?? []);
+        $this->data     = $data;
     }
 
     public function getTransfer(): Transfer
@@ -39,5 +41,10 @@ class Payment
     public function getStatus(): string
     {
         return $this->status;
+    }
+
+    public function getData(): array|string
+    {
+        return $this->data;
     }
 }

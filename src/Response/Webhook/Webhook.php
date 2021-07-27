@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Jaddek\Bitgo\Http\Client\Response\Webhook;
 
-use App\Core\SetterTrait;
+use Jaddek\Bitgo\Http\Client\SetterTrait;
 
 class Webhook
 {

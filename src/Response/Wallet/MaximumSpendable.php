@@ -15,9 +15,17 @@ final class MaximumSpendable
         $this->coin             = (isset($data['coin']) && is_string($data['coin'])) ? $data['coin'] : null;
     }
 
+    /**
+     * @return string|null
+     */
     public function getMaximumSpendable(): ?string
     {
         return $this->maximumSpendable;
+    }
+
+    public function getIntMaximumSpendable(): ?int
+    {
+        return (int)$this->maximumSpendable;
     }
 
     public function getCoin(): ?string
