@@ -14,7 +14,7 @@ class Payment
     private string   $txid;
     private string   $tx;
     private string   $status;
-    private string   $data;
+    private array    $data;
 
     public function __construct(array $data)
     {
@@ -43,7 +43,7 @@ class Payment
         return $this->status;
     }
 
-    public function getData(): array|string
+    public function getData(): array
     {
         return $this->data;
     }

@@ -4,18 +4,23 @@ declare(strict_types=1);
 
 namespace Jaddek\Bitgo\Http\Client\Provider;
 
-use Jaddek\Bitgo\Http\Client\AbstractProvider;
 use Jaddek\Bitgo\Http\Client\Client\Wallet\AddressInterface;
+use Jaddek\Bitgo\Http\Client\Client\Wallet\WebhookInterface;
 use Jaddek\Bitgo\Http\Client\Response\AddressDTO;
+use Psr\Log\LoggerInterface;
 use RuntimeException;
 use Symfony\Contracts\HttpClient\Exception\ExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\HttpExceptionInterface;
 
-/**
- * @property AddressInterface $client
- */
-class AddressProvider extends AbstractProvider
+class AddressProvider
 {
+    public function __construct(
+        private AddressInterface $client,
+        private LoggerInterface $logger
+    )
+    {
+    }
+
     public function create(string $coin, string $walletId, string $label): AddressDTO
     {
         try {
