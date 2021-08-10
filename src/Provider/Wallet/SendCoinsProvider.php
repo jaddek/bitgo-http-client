@@ -17,7 +17,7 @@ final class SendCoinsProvider
     {
     }
 
-    public function __invoke(string $coin, string $walletId, string $address, int $amount, string $sequenceId, string $passphrase = null): Payment
+    public function __invoke(string $coin, string $walletId, string $address, int $amount, string $sequenceId, string $passphrase = null, string $comment = ''): Payment
     {
         $this->logger->info(sprintf('%s:%s: send coins %s', __CLASS__, __FUNCTION__, $amount), [
             'amount'     => $amount,
@@ -25,6 +25,7 @@ final class SendCoinsProvider
             'wallet'     => $walletId,
             'address'    => $address,
             'sequenceId' => $sequenceId,
+            'comment'    => $comment,
         ]);
 
         $response = $this->client->send($coin, $walletId, [
@@ -32,6 +33,7 @@ final class SendCoinsProvider
             'amount'           => $amount,
             'walletPassphrase' => $passphrase,
             'sequenceId'       => $sequenceId,
+            'comment'          => $comment,
         ]);
 
 
