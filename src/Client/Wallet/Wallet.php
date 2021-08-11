@@ -73,4 +73,16 @@ class Wallet extends AbstractClient implements WalletInterface
 
         return $this->bitgoClient->request('GET', $url);
     }
+
+    public function sendMany(string $coin, string $walletId, array $body): ResponseInterface
+    {
+        $url = strtr('{coin}/wallet/{walletId}/sendmany', [
+            '{coin}'     => strtolower($coin),
+            '{walletId}' => $walletId,
+        ]);
+
+        return $this->bitgoClient->request('POST', $url, [
+            'json' => $body,
+        ]);
+    }
 }
