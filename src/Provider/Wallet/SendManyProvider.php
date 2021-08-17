@@ -17,23 +17,22 @@ final class SendManyProvider
     {
     }
 
-    public function __invoke(string $coin, string $walletId, array $recipiens, string $sequenceId, string $passphrase = null, string $comment = ''): Payment
+    public function __invoke(string $coin, string $walletId, array $recipients, string $sequenceId, string $passphrase = null, string $comment = ''): Payment
     {
         $this->logger->info(sprintf('%s:%s: send coins to many', __CLASS__, __FUNCTION__), [
-            'recipiens'  => $recipiens,
+            'recipients' => $recipients,
             'coin'       => $coin,
             'wallet'     => $walletId,
             'sequenceId' => $sequenceId,
             'comment'    => $comment,
         ]);
 
-        $response = $this->client->send($coin, $walletId, [
-            'recipiens'        => $recipiens,
+        $response = $this->client->sendMany($coin, $walletId, [
+            'recipients'       => $recipients,
             'walletPassphrase' => $passphrase,
             'sequenceId'       => $sequenceId,
             'comment'          => $comment,
         ]);
-
 
         $data = $response->toArray();
 
