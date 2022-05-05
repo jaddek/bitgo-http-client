@@ -17,7 +17,7 @@ class AddressProvider
     {
     }
 
-    public function create(string $coin, string $walletId, string $label): AddressDTO
+    public function create(string $coin, string $walletId, ?string $label = null): AddressDTO
     {
         $response = $this->client->create($coin, $walletId, $label);
 
