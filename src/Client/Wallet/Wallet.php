@@ -84,7 +84,7 @@ class Wallet extends AbstractClient implements WalletInterface
 
     public function balances(array $query): ResponseInterface
     {
-        $url = strtr('/wallet/balances?{query}', [
+        $url = strtr('wallet/balances?{query}', [
             '{query}' => http_build_query($query)
         ]);
 
