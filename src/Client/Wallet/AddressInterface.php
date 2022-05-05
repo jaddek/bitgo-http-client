@@ -8,7 +8,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface;;
 
 interface AddressInterface
 {
-    public function create(string $coin, string $walletId, string $label, array $body = []): ResponseInterface;
+    public function create(string $coin, string $walletId, ?string $label = null, array $body = []): ResponseInterface;
 
     public function get(string $coin, string $walletId, string $addressOrId): ResponseInterface;
 }
