@@ -14,7 +14,6 @@ class Wallet extends AbstractClient implements WalletInterface
      * @param string $walletId
      * @param array $body
      * @return ResponseInterface
-     * @throws \Symfony\Contracts\bitgoClient\Exception\TransportExceptionInterface
      */
     public function send(string $coin, string $walletId, array $body): ResponseInterface
     {
@@ -32,7 +31,6 @@ class Wallet extends AbstractClient implements WalletInterface
      * @param string $coin
      * @param string $walletId
      * @return ResponseInterface
-     * @throws \Symfony\Contracts\bitgoClient\Exception\TransportExceptionInterface
      */
     public function maximumSpendable(string $coin, string $walletId): ResponseInterface
     {
@@ -48,7 +46,6 @@ class Wallet extends AbstractClient implements WalletInterface
      * @param string $coin
      * @param string $walletId
      * @return ResponseInterface
-     * @throws \Symfony\Contracts\bitgoClient\Exception\TransportExceptionInterface
      */
     public function getTransferList(string $coin, string $walletId): ResponseInterface
     {
@@ -63,7 +60,6 @@ class Wallet extends AbstractClient implements WalletInterface
     /**
      * @param string $coin
      * @return ResponseInterface
-     * @throws \Symfony\Contracts\bitgoClient\Exception\TransportExceptionInterface
      */
     public function getList(string $coin): ResponseInterface
     {
