@@ -85,4 +85,13 @@ class Wallet extends AbstractClient implements WalletInterface
             'json' => $body,
         ]);
     }
+
+    public function balances(array $query): ResponseInterface
+    {
+        $url = strtr('/api/v2/wallet/balances?{query}', [
+            '{query}' => http_build_query($query)
+        ]);
+
+        return $this->bitgoClient->request('GET', $url);
+    }
 }

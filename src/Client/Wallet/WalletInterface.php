@@ -17,4 +17,6 @@ interface WalletInterface
     public function getList(string $coin): ResponseInterface;
 
     public function sendMany(string $coin, string $walletId, array $body): ResponseInterface;
+
+    public function balances(array $query): ResponseInterface;
 }
