@@ -13,7 +13,6 @@ class AddressProvider
 {
     public function __construct(
         private AddressInterface $client,
-        private LoggerInterface  $logger
     )
     {
     }
