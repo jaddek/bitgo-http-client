@@ -216,6 +216,9 @@ class Transfer
         return $this->userNotified;
     }
 
+    /**
+     * @return Entry[]
+     */
     public function getEntries(): array
     {
         return $this->entries;
