@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace Jaddek\Bitgo\Http\Client\Provider;
 
 use Jaddek\Bitgo\Http\Client\Client\Wallet\AddressInterface;
-use Jaddek\Bitgo\Http\Client\Client\Wallet\WebhookInterface;
 use Jaddek\Bitgo\Http\Client\Response\AddressDTO;
-use Psr\Log\LoggerInterface;
 
 class AddressProvider
 {

@@ -7,7 +7,7 @@ namespace Jaddek\Bitgo\Http\Client\Provider\Wallet;
 use Jaddek\Bitgo\Http\Client\Client\Wallet\WalletInterface;
 use Psr\Log\LoggerInterface;
 
-final class BalanceProvider
+class BalanceProvider
 {
     public function __construct(
         private WalletInterface $client,

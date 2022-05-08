@@ -8,7 +8,7 @@ use Jaddek\Bitgo\Http\Client\Client\Wallet\WalletInterface;
 use Jaddek\Bitgo\Http\Client\Response\Wallet\TransferList;
 use Psr\Log\LoggerInterface;
 
-final class TransferListProvider
+class TransferListProvider
 {
     public function __construct(
         private WalletInterface $client,

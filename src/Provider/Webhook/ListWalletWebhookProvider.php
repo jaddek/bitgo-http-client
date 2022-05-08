@@ -6,13 +6,11 @@ namespace Jaddek\Bitgo\Http\Client\Provider\Webhook;
 
 use Jaddek\Bitgo\Http\Client\Client\Wallet\WebhookInterface;
 use Jaddek\Bitgo\Http\Client\Response\Webhook\Endpoint;
-use Psr\Log\LoggerInterface;
 
-final class ListWalletWebhookProvider
+class ListWalletWebhookProvider
 {
     public function __construct(
         private WebhookInterface $client,
-        private LoggerInterface $logger
     )
     {
     }
