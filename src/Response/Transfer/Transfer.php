@@ -65,7 +65,7 @@ class Transfer
             'valueString',
             'baseValue',
             'baseValueString',
-            'freeString',
+            'feeString',
             'payGoFee',
             'payGoFeeString',
             'usd',
