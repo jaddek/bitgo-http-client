@@ -11,7 +11,7 @@ class Transfer extends AbstractClient implements TransferInterface
 {
     public function get(string $coin, string $walletId, string $transferId): ResponseInterface
     {
-        $url = strtr('{coin}/wallet/{walletId}/transfer/{transferId}', [
+        $url = strtr('{coin}/wallet/{walletId}/transfer/{transferId}?allTokens=true', [
             '{coin}'       => $coin,
             '{walletId}'   => $walletId,
             '{transferId}' => $transferId,
